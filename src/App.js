@@ -49,10 +49,8 @@ class App extends Component {
 					|| response.data.current_condition.condition === "Couvert avec averses" 
 					|| response.data.current_condition.condition === "Pluie faible" 
 					|| response.data.current_condition.condition === "Pluie forte" 
-					|| response.data.current_condition.condition === "Pluie modérée") {
-						background = "backgroundRainyOrCloudy"
-				}
-				if(response.data.current_condition.condition === "Stratus" 
+					|| response.data.current_condition.condition === "Pluie modérée"
+					|| response.data.current_condition.condition === "Stratus" 
 					|| response.data.current_condition.condition === "Ciel voilé" 
 					|| response.data.current_condition.condition === "Nuit légèrement voilée" 
 					|| response.data.current_condition.condition === "Faibles passages nuageux" 
