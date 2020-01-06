@@ -32,6 +32,8 @@ class App extends Component {
 	}
 	handleClick(event) {
 
+		event.preventDefault();
+
 		let background;
 
 		console.log(this.state.town)
@@ -146,15 +148,18 @@ class App extends Component {
 		return (
 
 			<div>
-				<div className="title"><h2>Météo</h2></div>
-				<div className="row">
+				<div className="title">
+					<h2>Météo</h2>
+					<p>API : https://www.prevision-meteo.ch/services</p>
+				</div>
+				<form className="row">
 					<div className="col-6-lg">
 						<Input value={ this.state.emptyInput } callback={ this.receiveInput } />
 					</div>
 					<div className="col-6-lg">
 						<button className="btn btn-info input" onClick={ (event) => this.handleClick(event) }>Add</button>
 					</div>
-				</div>
+				</form>
 				<div>{ this.renderArray() }</div>
 			</div>
 
