@@ -1,19 +1,32 @@
 // Ceci n'est pas un commentaire
 
-import React from 'react'
+import React, { Component } from 'react'
 
-const Input = (props) => {
+class Input extends Component {
 	
-	function handleChange(event) {
+	handleChange(event) {
 
 		event.persist();
 
-		props.callback(event.target.value)
+		this.props.callback(event.target.value)
 
 	}
+	render() {
 
-	return <input className="form-control" onChange={ (event) => handleChange(event) } />
-				
+		return (
+
+			<div>
+				<input 
+					className="form-control" 
+					placeholder = "Une commune fr..."
+					onChange={ (event) => this.handleChange(event) } 
+					value={ this.props.value } 
+				/>
+			</div>
+
+		)
+
+	}
 }
  
 export default Input;

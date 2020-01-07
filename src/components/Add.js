@@ -7,11 +7,11 @@ const Add = (props) => {
 
 	function handleClick(event) {
 
+		let clearCheck = false;
+
 		event.preventDefault();
 
 		let background;
-
-		let clear = false;
 
 		const responsesPerTown = []
 
@@ -79,18 +79,18 @@ const Add = (props) => {
 
 			console.log(responsesPerTown)
 
-			clear = true
+			clearCheck = true
 
-		})
+			if(clearCheck === true) {
+
+				props.callbackClear( "" )
 	
-		if(clear === true) {
+				console.log("clear")
 
-			props.callbackClear( "" )
+				clearCheck = false
+			}
 
-			console.log("clear")
-
-			clear = false
-		}	
+		})	
 	}
 
 	return <button className="btn btn-info input" onClick={ (event) => handleClick(event)}>Add</button>

@@ -18,7 +18,7 @@ class App extends Component {
 			town : "",
 			responsesPerTown : [],
 			background : "",
-			emptyInput : ""
+			checkClear : false
 		}
 	}
 	receiveInput(data) {
@@ -33,14 +33,14 @@ class App extends Component {
 
 		this.setState((state) => {
 
-			return { responsesPerTown : [...this.state.responsesPerTown, data ] }
+			return { responsesPerTown : [...this.state.responsesPerTown, data ], checkClear : true }
 		})
 	}
 	clearInput(clear) {
 
 		this.setState((state) => {
 
-			return { emptyInput : clear }
+			return { emptyInput : clear }
 		})
 	}
 	renderArray() {
@@ -72,6 +72,16 @@ class App extends Component {
 			responsesPerTown : list
 		})
 	}
+	componentDidUpdate() {
+
+		if(this.state.checkClear) {
+
+			this.setState((state) => {
+
+				return { town : "", checkClear : false }
+			})
+		}
+	}
 	render() {
 
 		return (
@@ -83,7 +93,7 @@ class App extends Component {
 				</div>
 				<form className="row">
 					<div className="col-6-lg">
-						<Input callback={ this.receiveInput } value={ this.state.emptyInput } />
+						<Input callback={ this.receiveInput } value={ this.state.town } />
 					</div>
 					<div className="col-6-lg">
 						<Add value={ this.state.town } callback={ this.receiveDataAdd } callbackClear={ this.clearInput } />
