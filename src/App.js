@@ -52,7 +52,10 @@ class App extends Component {
 				<div className={ town.background }
 					key={ town.town }>
 					<div className="dataInResponse">{ town.town }</div>
-					<div className="dataInResponse">{ town.weather }</div>
+					<div className="dataInResponse">
+						<div className="weather">{ town.weather }</div>
+						<div className="iconWeather">{ town.icon }</div>
+					</div>
 					<div className="dataInResponse">{ town.tmp }<div> °C</div></div>
 					<button className="btn btn-link"onClick={() => this.delete(town)}>Delete</button>
 				</div>

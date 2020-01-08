@@ -30,6 +30,24 @@ body
 	justify-content: center;
 	align-items: center;
 }
+.iconWeather
+{
+	display: none;
+}
+@media screen and (max-width: 748px) 
+{
+	.weather
+	{
+		display: none;
+	}
+	.iconWeather
+	{
+		display: flex;
+		width: auto;
+		justify-content: center;
+		align-items: center;
+	}
+}
 .backgroundNight
 {
 	display : flex;
@@ -99,6 +117,7 @@ body
 {
 	color: white;
 }
+
 
 
 
